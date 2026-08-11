@@ -1,38 +1,31 @@
+// Replace these Spotify URLs with your favorite playlists or songs!
 const playlists = {
   good: {
     label: "GOOD",
     emoji: "😊",
-    songs: [
-      { title: "Morning Light", artist: "RAABTA FM" },
-      { title: "Easy Days", artist: "RAABTA FM" }
-    ]
+    // Paste any Spotify playlist or album URL here:
+    spotifyUrl: "https://open.spotify.com/embed/playlist/37i9dQZF1DX3rxA2346934"
   },
   calm: {
     label: "CALM",
     emoji: "🌿",
-    songs: [
-      { title: "Still Air", artist: "RAABTA FM" },
-      { title: "Soft Rain", artist: "RAABTA FM" }
-    ]
+    spotifyUrl: "https://open.spotify.com/embed/playlist/37i9dQZF1DX4WYpd332521"
   },
   love: {
     label: "LOVE",
     emoji: "❤️",
-    songs: [
-      { title: "Close to You", artist: "RAABTA FM" },
-      { title: "Afterglow", artist: "RAABTA FM" }
-    ]
+    spotifyUrl: "https://open.spotify.com/embed/playlist/37i9dQZF1DX0XUsA23chBh"
   }
 };
 
-// Handle clicks on the website
 document.addEventListener("DOMContentLoaded", () => {
   const hero = document.getElementById("home");
   const player = document.getElementById("player");
   const playerMood = document.getElementById("playerMood");
   const backBtn = document.getElementById("backBtn");
+  const cover = document.getElementById("cover");
 
-  // Listen for clicks on mood buttons
+  // Handle Mood Click
   document.body.addEventListener("click", (e) => {
     const btn = e.target.closest(".mood-btn");
     if (!btn) return;
@@ -49,14 +42,31 @@ document.addEventListener("DOMContentLoaded", () => {
       if (playerMood) {
         playerMood.textContent = `${moodData.emoji} ${moodData.label}`;
       }
+
+      // Add the Spotify Player Box inside the 'cover' div
+      if (cover) {
+        cover.innerHTML = `
+          <iframe 
+            style="border-radius:12px; margin-top: 15px;" 
+            src="${moodData.spotifyUrl}" 
+            width="100%" 
+            height="352" 
+            frameBorder="0" 
+            allowfullscreen="" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+          </iframe>
+        `;
+      }
     }
   });
 
-  // Listen for back button click
+  // Handle Back Button
   if (backBtn) {
     backBtn.addEventListener("click", () => {
       if (player) player.style.display = "none";
       if (hero) hero.style.display = "block";
+      if (cover) cover.innerHTML = ""; // Stop music when going back
     });
   }
 });
