@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RAABTA FM — Har mood ka apna raabta</title>
+  <meta name="description" content="RAABTA FM — choose how you feel and discover a playlist for your mood.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">RAABTA <span>FM</span></div>
+      <button class="ghost" id="aboutBtn">About</button>
+    </header>
+
+    <section class="hero" id="home">
+      <p class="eyebrow">HAR MOOD KA APNA RAABTA</p>
+      <h1>How are you<br><em>feeling?</em></h1>
+      <p class="sub">Pick a mood. Let the music find you.</p>
+
+      <div class="moods" id="moods"></div>
+    </section>
+
+    <section class="player hidden" id="player">
+      <button class="back" id="backBtn">← Change mood</button>
+      <div class="cover" id="cover">♪</div>
+      <p class="player-label" id="playerMood">YOUR RAABTA</p>
+      <h2 id="songTitle">Select a mood</h2>
+      <p class="artist" id="artist">RAABTA FM</p>
+
+      <div class="progress-wrap">
+        <input type="range" id="progress" min="0" max="100" value="0">
+        <div class="times"><span id="current">0:00</span><span id="duration">0:00</span></div>
+      </div>
+
+      <div class="controls">
+        <button class="control" id="prevBtn">↶</button>
+        <button class="play" id="playBtn">▶</button>
+        <button class="control" id="nextBtn">↷</button>
+      </div>
+
+      <p class="note">Demo player — add your own licensed/royalty-free audio in the <b>audio</b> folder.</p>
+    </section>
+
+    <div class="modal hidden" id="modal">
+      <div class="modal-card">
+        <button class="close" id="closeBtn">×</button>
+        <p class="eyebrow">ABOUT RAABTA FM</p>
+        <h2>Music for the moment you're in.</h2>
+        <p>RAABTA FM is a mood-first music experience. Choose how you feel and your playlist changes with you.</p>
+      </div>
+    </div>
+
+    <audio id="audio" preload="metadata"></audio>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
