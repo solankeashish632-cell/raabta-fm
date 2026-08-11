@@ -67,3 +67,12 @@ const moodsEl = document.getElementById("moods");
 const hero = document.querySelector(".hero");
 const player = document.getElementById("player");
 const audio = document.getElementById("audio
+// Render mood buttons
+if (moodsEl && typeof playlists !== "undefined") {
+  moodsEl.innerHTML = Object.keys(playlists)
+    .map(key => {
+      const mood = playlists[key];
+      return `<button class="mood-btn" data-mood="${key}">${mood.emoji || ''} ${mood.label}</button>`;
+    })
+    .join("");
+}
