@@ -1,67 +1,57 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RAABTA FM — Har mood ka apna raabta</title>
-  <meta name="description" content="RAABTA FM — choose how you feel and discover a playlist for your mood.">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAABTA FM</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4efe6;
+      color: #111;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 { font-size: 2.5rem; margin-bottom: 5px; }
+    p { color: #666; margin-bottom: 25px; }
+    .buttons { display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; }
+    button {
+      padding: 10px 20px;
+      border: 1px solid #333;
+      border-radius: 20px;
+      background: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover { background: #333; color: white; }
+    iframe { border-radius: 12px; max-width: 100%; }
+  </style>
 </head>
 <body>
-  <main class="app">
-    <header class="topbar">
-      <div class="brand">RAABTA <span>FM</span></div>
-      <button class="ghost" id="aboutBtn">About</button>
-    </header>
 
-    <section class="hero" id="home">
-      <p class="eyebrow">HAR MOOD KA APNA RAABTA</p>
-      <h1>How are you<br><em>feeling?</em></h1>
-   <p class="sub">Pick a mood. Let the music find you.</p>
+  <h1>RAABTA FM</h1>
+  <p>Pick a mood. Let the music find you.</p>
 
-<div class="moods" id="moods" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; min-height: 50px;">
-  <button class="mood-btn" data-mood="good" style="padding: 12px 20px; font-size: 16px; background: #000; color: #fff; border: none; border-radius: 8px; cursor: pointer;">😊 GOOD</button>
-  <button class="mood-btn" data-mood="calm" style="padding: 12px 20px; font-size: 16px; background: #000; color: #fff; border: none; border-radius: 8px; cursor: pointer;">🌿 CALM</button>
-  <button class="mood-btn" data-mood="love" style="padding: 12px 20px; font-size: 16px; background: #000; color: #fff; border: none; border-radius: 8px; cursor: pointer;">❤️ LOVE</button>
-</div>
-</section>
-<script src="script.js"></script>
-    
+  <div class="buttons">
+    <button onclick="play('37i9dQZF1DX3rxS2u213R8')">😊 Happy</button>
+    <button onclick="play('37i9dQZF1DX7qK21R1Pq3Z')">🌧️ Sad</button>
+    <button onclick="play('37i9dQZF1DX4WYAsP3v4Pq')">☕ Chill</button>
+  </div>
 
-<script src="script.js"></script>
-    
-    <section class="player hidden" id="player">
-      <button class="back" id="backBtn">← Change mood</button>
-      <div class="cover" id="cover">♪</div>
-      <p class="player-label" id="playerMood">YOUR RAABTA</p>
-      <h2 id="songTitle">Select a mood</h2>
-      <p class="artist" id="artist">RAABTA FM</p>
+  <iframe 
+    id="player" 
+    src="https://open.spotify.com/embed/playlist/37i9dQZF1DX3rxS2u213R8" 
+    width="100%" 
+    height="352" 
+    frameborder="0" 
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+  </iframe>
 
-      <div class="progress-wrap">
-        <input type="range" id="progress" min="0" max="100" value="0">
-        <div class="times"><span id="current">0:00</span><span id="duration">0:00</span></div>
-      </div>
+  <script>
+    function play(id) {
+      document.getElementById('player').src = "https://open.spotify.com/embed/playlist/" + id;
+    }
+  </script>
 
-      <div class="controls">
-        <button class="control" id="prevBtn">↶</button>
-        <button class="play" id="playBtn">▶</button>
-        <button class="control" id="nextBtn">↷</button>
-      </div>
-
-      <p class="note">Demo player — add your own licensed/royalty-free audio in the <b>audio</b> folder.</p>
-    </section>
-
-    <div class="modal hidden" id="modal">
-      <div class="modal-card">
-        <button class="close" id="closeBtn">×</button>
-        <p class="eyebrow">ABOUT RAABTA FM</p>
-        <h2>Music for the moment you're in.</h2>
-        <p>RAABTA FM is a mood-first music experience. Choose how you feel and your playlist changes with you.</p>
-      </div>
-    </div>
-
-    <audio id="audio" preload="metadata"></audio>
-  </main>
-  <script src="script.js"></script>
 </body>
 </html>
