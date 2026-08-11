@@ -1,9 +1,7 @@
-// Replace these Spotify URLs with your favorite playlists or songs!
-const playlists = {
+// const playlists = {
   good: {
     label: "GOOD",
     emoji: "😊",
-    // Paste any Spotify playlist or album URL here:
     spotifyUrl: "https://open.spotify.com/embed/playlist/37i9dQZF1DX3rxA2346934"
   },
   calm: {
@@ -18,7 +16,6 @@ const playlists = {
   }
 };
 
-document.addEventListener("DOMContentLoaded", () => {
   const hero = document.getElementById("home");
   const player = document.getElementById("player");
   const playerMood = document.getElementById("playerMood");
