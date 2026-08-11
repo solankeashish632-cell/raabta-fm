@@ -1,18 +1,18 @@
-// const playlists = {
+const playlists = {
   good: {
     label: "GOOD",
     emoji: "😊",
-    spotifyUrl: "https://open.spotify.com/embed/playlist/37i9dQZF1DX3rxA2346934"
+    spotifyUrl: "https://open.spotify.com/embed/track/0VjIjA2KyA3B23A8CebW9c"
   },
   calm: {
     label: "CALM",
     emoji: "🌿",
-    spotifyUrl: "https://open.spotify.com/embed/playlist/37i9dQZF1DX4WYpd332521"
+    spotifyUrl: "https://open.spotify.com/embed/track/1dGr1c8CrMLDpV6A39S23A"
   },
   love: {
     label: "LOVE",
     emoji: "❤️",
-    spotifyUrl: "https://open.spotify.com/embed/playlist/37i9dQZF1DX0XUsA23chBh"
+    spotifyUrl: "https://open.spotify.com/embed/track/7iA4I4OllK5G4c5i9C3186"
   }
 };
 
