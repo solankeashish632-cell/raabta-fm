@@ -76,3 +76,28 @@ if (moodsEl && typeof playlists !== "undefined") {
     })
     .join("");
 }
+// Add click listener to mood buttons
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".mood-btn");
+  if (!btn) return;
+  
+  const moodKey = btn.getAttribute("data-mood");
+  const selectedMood = playlists[moodKey];
+  
+  if (selectedMood) {
+    if (hero) hero.classList.add("hidden");
+    if (player) player.classList.remove("hidden");
+    
+    const moodTitle = document.getElementById("playerMood");
+    if (moodTitle) moodTitle.textContent = `${selectedMood.emoji || ''} ${selectedMood.label}`;
+  }
+});
+
+// Back button listener
+const backBtn = document.getElementById("backBtn");
+if (backBtn) {
+  backBtn.addEventListener("click", () => {
+    if (player) player.classList.add("hidden");
+    if (hero) hero.classList.remove("hidden");
+  });
+}
